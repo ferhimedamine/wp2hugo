@@ -5,3 +5,4 @@ dependencies:
   - python=3.6.6=hc3d631a_0
   - pyyaml=3.12=py36hafb9ca4_1
   - tqdm=4.23.4=py36_0
+  - beautifulsoup4=4.6.0=py36h49b8c8c_1

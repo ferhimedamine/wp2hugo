@@ -24,11 +24,11 @@ def download_images(name, input_file, output_dir, overwrite):
     :param overwrite: whether not to skip existing files
     """
     regex = re.compile(
-        r'"(http[s]://{}.files.wordpress.com[^"]*)"'.format(name))
+        r'"(https?://{}.files.wordpress.com[^?"]*)("|\?)'.format(name))
     with open(input_file) as infile:
         content = infile.read()
 
-    urls = set(regex.findall(content))
+    urls = set([m[0] for m in regex.findall(content)])
     logger.warning('found %d urls.', len(urls))
 
     for url in tqdm.tqdm(urls):
